@@ -1,0 +1,19 @@
+application:
+  name: Practice_Module
+input:
+  source_path: data/resumes
+
+output:
+  output_path: output
+  raw_response: raw_response
+  parsed_response: parsed_response
+
+llm:
+  api_key: "OpenAPI_Paid_Key"
+  provider: openai
+  model: gpt-4o-mini
+
+retry:
+  max_attempts: 3
+  initial_delay: 2
+  max_delay: 30
