@@ -3,6 +3,7 @@ import os
 from openai import OpenAI
 
 from src.config_loader import load_config
+from dotenv import load_dotenv
 
 def main():
     try:        
@@ -10,6 +11,7 @@ def main():
         config = load_config(config_path="config/config.yaml")
 
         # Load environment variable
+        load_dotenv()
         api_key = os.getenv(f"{config['llm']['api_key']}")
 
         client = OpenAI(api_key=api_key)
