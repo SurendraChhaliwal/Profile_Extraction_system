@@ -1,12 +1,14 @@
-#print("TOP OF FILE")
+# print("TOP OF FILE")
 import os
+
+from dotenv import load_dotenv
 from openai import OpenAI
 
 from src.config_loader import load_config
-from dotenv import load_dotenv
+
 
 def main():
-    try:        
+    try:
         # Load configuration file
         config = load_config(config_path="config/config.yaml")
 
@@ -16,7 +18,7 @@ def main():
 
         client = OpenAI(api_key=api_key)
 
-        config['client'] = client
+        config["client"] = client
 
         # Import processor and load config
         from src.processor import Processor
@@ -26,5 +28,6 @@ def main():
     except Exception as e:
         print(f"Pipeline Failed: {e}")
 
-if __name__ == '__main__':
-    main()    
+
+if __name__ == "__main__":
+    main()

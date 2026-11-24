@@ -1,11 +1,13 @@
 import yaml
 
+
 def load_config(config_path):
-    with open(config_path,'r',encoding='utf-8') as f:
-        config =yaml.safe_load(f)
+    with open(config_path, "r", encoding="utf-8") as f:
+        config = yaml.safe_load(f)
     if not isinstance(config, dict):
         raise ValueError("Invalid configuration file")
     return config
 
-#config=load_config('config/config.yaml')
-#print(config)
+
+# config=load_config('config/config.yaml')
+# print(config)

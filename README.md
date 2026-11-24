@@ -36,6 +36,9 @@ Profile_Extraction_system/
 │   └── config.yaml
 ├── data/
 │   └── resumes/          # Resume .txt files
+├── .vscode/
+│   └── settings.json
+├── pyproject.toml       # Ruff configuration
 ├── src/
 │   ├── config_loader.py
 │   ├── data_loader.py
@@ -84,10 +87,9 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-pip install python-dotenv
 ```
 
-`python-dotenv` is required because `main.py` loads API credentials from a `.env` file.
+The requirements include `python-dotenv` for loading credentials from `.env` and Ruff for formatting and linting.
 
 ### 4. Configure the API key
 
@@ -160,6 +162,38 @@ output/
 - `results_<run-id>.xlsx` contains successfully parsed candidates.
 - `errors_<run-id>.xlsx` contains candidates that failed processing.
 - `logs_<run-id>.md` contains run totals and execution details.
+
+## Formatting and Linting
+
+Ruff configuration is stored in `pyproject.toml`. Format Python source files with:
+
+```powershell
+ruff format .
+```
+
+Check formatting without changing files:
+
+```powershell
+ruff format --check .
+```
+
+Run lint checks with:
+
+```powershell
+ruff check .
+```
+
+Apply safe Ruff lint fixes with:
+
+```powershell
+ruff check --fix .
+```
+
+VS Code can format Python files on save when the Ruff extension is installed:
+
+1. Open Extensions with `Ctrl+Shift+X`.
+2. Install **Ruff** by Astral Software.
+3. Open a `.py` file and save it to format automatically.
 
 ## Privacy and GitHub Usage
 
